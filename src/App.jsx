@@ -141,7 +141,7 @@ const Hero = () => (
         </div>
       </div>
       <div className="hero-image">
-        <img src="/hero.png" alt="Persona Hero" />
+        <img src="/persona01.jpeg" alt="Persona Hero" />
       </div>
     </div>
   </section>
@@ -268,9 +268,9 @@ const Testimonials = () => (
 
       <div className="grid-3">
         {[
-          { name: 'Dr. Ricardo Santos', role: 'CEO TechAfrica', text: 'A PERSONA+ transformou a forma como comunicamos o meu perfil. Hoje a autoridade é percebida antes mesmo da primeira reunião formal.' },
-          { name: 'Ana Oliveira', role: 'Executive Coach', text: 'O acompanhamento estratégico foi o divisor de águas crucial que eu precisava para o meu bem-sucedido reposicionamento digital.' },
-          { name: 'Pedro Mateus', role: 'Inovador Digital', text: 'As oportunidades de networking geradas pela plataforma são de altíssimo nível internacional. Recomendo com total confiança.' }
+          { name: 'Dr. Ricardo Santos', role: 'CEO TechAfrica', text: 'A PERSONA+ transformou a forma como comunicamos o meu perfil. Hoje a autoridade é percebida antes mesmo da primeira reunião formal.', img: '/persona02.jpeg' },
+          { name: 'Ana Oliveira', role: 'Executive Coach', text: 'O acompanhamento estratégico foi o divisor de águas crucial que eu precisava para o meu bem-sucedido reposicionamento digital.', img: '/persona03.jpeg' },
+          { name: 'Pedro Mateus', role: 'Inovador Digital', text: 'As oportunidades de networking geradas pela plataforma são de altíssimo nível internacional. Recomendo com total confiança.', img: '/persona04.jpeg' }
         ].map((t, i) => (
           <div key={i} className="testimonial-card">
             <div>
@@ -278,8 +278,8 @@ const Testimonials = () => (
               <p style={{ fontSize: '1.25rem', fontWeight: '600', fontStyle: 'italic', color: 'var(--primary)', marginBottom: '30px' }}>"{t.text}"</p>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-              <div style={{ width: '50px', height: '50px', background: 'rgba(0,59,126,0.05)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', color: 'var(--primary)' }}>
-                {t.name.charAt(0)}
+              <div style={{ width: '50px', height: '50px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 5px 15px rgba(0,0,0,0.1)' }}>
+                <img src={t.img} alt={t.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div>
                 <div style={{ fontWeight: '800', color: 'var(--primary-dark)' }}>{t.name}</div>
