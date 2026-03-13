@@ -46,6 +46,7 @@ const Navbar = () => {
     { name: 'Oportunidades', href: '#oportunidades' },
     { name: 'Referências', href: '#referencias' },
     { name: 'Emprego', href: '#emprego' },
+    { name: 'Estágio', href: '#estagio' },
     { name: 'Contacto', href: '#contacto' },
   ];
 
