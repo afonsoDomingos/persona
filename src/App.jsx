@@ -152,10 +152,10 @@ const Hero = () => {
             fontWeight: 'bold',
             marginBottom: '20px'
           }}>
-            ESTRATÉGIA DE MARCA PESSOAL
+            POSICIONAMENTO • MARCA • INFLUÊNCIA • AUTORIDADE
           </div>
-          <h1>Construa uma <span className="text-gradient">Marca Pessoal</span> Forte e Estratégica</h1>
-          <p>A PERSONA+ ajuda profissionais e líderes a posicionarem-se com clareza, autoridade e impacto no mercado global.</p>
+          <h1>Construa sua <span className="text-gradient">Marca Pessoal</span> de Alto Impacto</h1>
+          <p>Estratégia de posicionamento estratégico, marca, INFLUÊNCIA E AUTORIDADE para líderes que desejam dominar o seu mercado.</p>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }} className="hero-flex-center">
             <button className="btn btn-accent">Peça sua Formação <ArrowRight size={20} /></button>
             <button className="btn" style={{ background: 'white', border: '1px solid #ddd', color: 'var(--primary)' }}>Nossos Serviços</button>
