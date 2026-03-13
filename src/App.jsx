@@ -437,6 +437,7 @@ const Footer = () => (
             <h4 style={{ color: 'var(--accent)', fontSize: '0.8rem', fontWeight: '900', marginBottom: '25px', letterSpacing: '2px' }}>CARREIRAS</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <a href="#emprego" style={{ color: 'white', opacity: 0.8, textDecoration: 'none' }}>Vagas Abertas</a>
+              <a href="#estagio" style={{ color: 'white', opacity: 0.8, textDecoration: 'none' }}>Estágio</a>
               <a href="#emprego" style={{ color: 'white', opacity: 0.8, textDecoration: 'none' }}>Equipa Global</a>
             </div>
           </div>
