@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -9,179 +13,56 @@
   --bg-white: #FFFFFF;
   --text-main: #1E293B;
   --text-muted: #64748B;
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --shadow: 0 10px 30px -10px rgba(0, 59, 126, 0.1);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Outfit', sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-main);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--primary);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: var(--transition);
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
+@layer base {
+  body {
+    @apply font-outfit text-text-main bg-bg-light leading-relaxed overflow-x-hidden;
   }
 }
 
-.section {
-  padding: 120px 0;
-}
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-12;
+  }
 
-@media (max-width: 1024px) {
-  .section {
-    padding: 80px 0;
+  /* Custom Hover Effects */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  /* Glassmorphism Classes */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply bg-primary/90 backdrop-blur-md border border-white/10;
+  }
+
+  /* Custom Buttons */
+  .btn-base {
+    @apply inline-flex items-center justify-center font-bold transition-all duration-300 rounded-full cursor-pointer;
+  }
+
+  .btn-main {
+    @apply btn-base bg-primary text-white hover:bg-primary-dark shadow-md hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-orange {
+    @apply btn-base bg-accent text-white hover:bg-accent-light px-8 py-4 shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply btn-base border-2 border-primary text-primary hover:bg-primary-50 px-8 py-4;
   }
 }
 
-/* Glass Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 32px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: var(--transition);
-  border: none;
-  gap: 8px;
-}
-
-.btn-primary {
-  background-color: var(--primary);
-  color: white;
-  box-shadow: 0 4px 14px 0 rgba(0, 59, 126, 0.39);
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 59, 126, 0.23);
-}
-
-.btn-accent {
-  background-color: var(--accent);
-  color: white;
-  box-shadow: 0 4px 14px 0 rgba(232, 108, 23, 0.39);
-}
-
-.btn-accent:hover {
-  background-color: var(--accent-light);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(232, 108, 23, 0.23);
-}
-
-/* Glassmorphism Classes */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow);
-}
-
-/* Animated Background Shapes */
-.shape {
-  position: absolute;
-  z-index: -1;
-  filter: blur(80px);
-  opacity: 0.4;
-  border-radius: 50%;
-}
-
-.shape-1 {
-  width: 400px;
-  height: 400px;
-  background: var(--primary);
-  top: -100px;
-  right: -100px;
-}
-
-.shape-2 {
-  width: 300px;
-  height: 300px;
-  background: var(--accent);
-  bottom: 100px;
-  left: -50px;
-}
-
-/* Custom Utilities */
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
 }
 
-.grid {
-  display: grid;
-  gap: 30px;
-}
-
-@media (min-width: 768px) {
-  .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 60px 0;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-  }
+/* Custom background shapes */
+.shape-blur {
+  @apply absolute rounded-full blur-[80px] opacity-30 select-none -z-10 pointer-events-none;
 }
