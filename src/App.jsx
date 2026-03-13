@@ -22,11 +22,16 @@ import {
 
 const Logo = ({ light = false, hideText = false }) => (
   <div className="flex items-center gap-3">
-    <div className={`relative ${hideText ? 'h-8' : 'h-8 md:h-10'}`}>
+    <div className="relative" style={{ height: 'auto' }}>
       <img
         src={hideText ? "/logo.png" : "/personalogo.png"}
         alt="PERSONA+"
-        className={`h-full w-auto object-contain transition-all ${light ? 'brightness-0 invert' : ''}`}
+        style={{
+          height: '40px',
+          width: 'auto',
+          objectFit: 'contain'
+        }}
+        className={`transition-all ${light ? 'brightness-0 invert' : ''} md:h-[40px] h-[32px]`}
       />
     </div>
   </div>
