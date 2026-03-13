@@ -117,35 +117,71 @@ const Navbar = () => {
   );
 };
 
-const Hero = () => (
-  <section className="hero">
-    <div className="container hero-grid">
-      <div className="hero-text">
-        <div style={{
-          display: 'inline-block',
-          background: 'rgba(0, 59, 126, 0.05)',
-          padding: '6px 16px',
-          borderRadius: '50px',
-          color: 'var(--primary)',
-          fontSize: '0.8rem',
-          fontWeight: 'bold',
-          marginBottom: '20px'
-        }}>
-          ESTRATÉGIA DE MARCA PESSOAL
+const Hero = () => {
+  const images = [
+    '/persona01.jpeg',
+    '/persona02.jpeg',
+    '/persona03.jpeg',
+    '/persona04.jpeg',
+    '/persona05.jpeg',
+    '/persona06.jpeg',
+    '/persona07.jpeg',
+    '/persona08.jpeg',
+  ];
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % images.length);
+    }, 4000); // Change image every 4 seconds
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <section className="hero">
+      <div className="container hero-grid">
+        <div className="hero-text">
+          <div style={{
+            display: 'inline-block',
+            background: 'rgba(0, 59, 126, 0.05)',
+            padding: '6px 16px',
+            borderRadius: '50px',
+            color: 'var(--primary)',
+            fontSize: '0.8rem',
+            fontWeight: 'bold',
+            marginBottom: '20px'
+          }}>
+            ESTRATÉGIA DE MARCA PESSOAL
+          </div>
+          <h1>Construa uma <span className="text-gradient">Marca Pessoal</span> Forte e Estratégica</h1>
+          <p>A PERSONA+ ajuda profissionais e líderes a posicionarem-se com clareza, autoridade e impacto no mercado global.</p>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }} className="hero-flex-center">
+            <button className="btn btn-accent">Peça sua Formação <ArrowRight size={20} /></button>
+            <button className="btn" style={{ background: 'white', border: '1px solid #ddd', color: 'var(--primary)' }}>Nossos Serviços</button>
+          </div>
         </div>
-        <h1>Construa uma <span className="text-gradient">Marca Pessoal</span> Forte e Estratégica</h1>
-        <p>A PERSONA+ ajuda profissionais e líderes a posicionarem-se com clareza, autoridade e impacto no mercado global.</p>
-        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }} className="hero-flex-center">
-          <button className="btn btn-accent">Peça sua Formação <ArrowRight size={20} /></button>
-          <button className="btn" style={{ background: 'white', border: '1px solid #ddd', color: 'var(--primary)' }}>Nossos Serviços</button>
+        <div className="hero-image" style={{ position: 'relative', overflow: 'hidden' }}>
+          {images.map((src, idx) => (
+            <img
+              key={src}
+              src={src}
+              alt={`Persona ${idx + 1}`}
+              style={{
+                position: idx === 0 ? 'relative' : 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                opacity: currentIdx === idx ? 1 : 0,
+                transition: 'opacity 1.5s ease-in-out',
+                zIndex: currentIdx === idx ? 2 : 1
+              }}
+            />
+          ))}
         </div>
       </div>
-      <div className="hero-image">
-        <img src="/persona01.jpeg" alt="Persona Hero" />
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const About = () => (
   <section id="sobre" className="section" style={{ background: 'white' }}>
