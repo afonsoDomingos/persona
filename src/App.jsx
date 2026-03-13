@@ -15,26 +15,18 @@ import {
   Phone,
   CheckCircle2,
   Trophy,
-  Rocket
+  Rocket,
+  ChevronRight
 } from 'lucide-react';
 
 // --- Components ---
 
 const Logo = ({ light = false, hideText = false }) => (
-  <div className="flex items-center gap-3">
-    <div className="relative" style={{ height: 'auto' }}>
-      <img
-        src={hideText ? "/logo.png" : "/personalogo.png"}
-        alt="PERSONA+"
-        style={{
-          height: '40px',
-          width: 'auto',
-          objectFit: 'contain'
-        }}
-        className={`transition-all ${light ? 'brightness-0 invert' : ''} md:h-[40px] h-[32px]`}
-      />
-    </div>
-  </div>
+  <img
+    src={hideText ? "/logo.png" : "/personalogo.png"}
+    alt="PERSONA+"
+    className={`h-8 md:h-10 w-auto object-contain transition-all ${light ? 'brightness-0 invert' : ''}`}
+  />
 );
 
 const Navbar = () => {
@@ -58,46 +50,60 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass py-3' : 'bg-transparent py-5'}`}>
-      <div className="container flex items-center justify-between">
-        <Logo />
+      <div className="container flex items-center justify-between gap-4">
+        <a href="/" className="flex-shrink-0">
+          <Logo />
+        </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {menuItems.map((item) => (
-            <a key={item.name} href={item.href} className="text-primary font-medium hover:text-accent">
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-primary font-semibold text-sm xl:text-base hover:text-accent whitespace-nowrap transition-colors"
+            >
               {item.name}
             </a>
           ))}
-          <button className="btn btn-accent px-6 py-2 text-sm">Aceder Plataforma</button>
+          <button className="btn btn-accent px-6 py-2.5 text-sm whitespace-nowrap ml-2">
+            Aceder Plataforma
+          </button>
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-primary" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X /> : <Menu />}
+        <button
+          className="lg:hidden p-2 text-primary hover:bg-blue-50 rounded-xl transition-colors"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass overflow-hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="lg:hidden absolute top-full left-0 w-full glass shadow-2xl overflow-hidden border-t border-gray-100"
           >
-            <div className="container flex flex-col py-5 gap-4">
+            <div className="container flex flex-col py-8 gap-6">
               {menuItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="py-2 text-primary font-medium"
+                  className="text-lg text-primary font-bold hover:text-accent transition-colors flex items-center justify-between"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
+                  <ChevronRight size={20} className="text-accent" />
                 </a>
               ))}
-              <button className="btn btn-accent w-full mt-2">Aceder Plataforma</button>
+              <hr className="border-gray-100" />
+              <button className="btn btn-accent w-full py-4 text-lg">Aceder Plataforma</button>
             </div>
           </motion.div>
         )}
