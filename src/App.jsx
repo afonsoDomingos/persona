@@ -206,39 +206,173 @@ const Services = () => (
   </section>
 );
 
+const Opportunities = () => (
+  <section id="oportunidades" className="section section-primary">
+    <div className="absolute -top-24 -left-24 w-[1000px] h-[1000px] bg-blue-950/40 rounded-full blur-[120px] pointer-events-none" />
+    
+    <div className="container relative" style={{ zIndex: 10 }}>
+      <div className="hero-grid">
+        <div>
+          <span className="badge badge-light">EXCLUSIVO PERSONA+</span>
+          <h2 style={{ fontSize: '3rem', color: 'white', marginBottom: '30px' }}>Oportunidades que <br /> <span className="text-accent italic">Aceleram</span> seu Sucesso</h2>
+          <p style={{ fontSize: '1.2rem', marginBottom: '40px', opacity: 0.8 }}>
+            Aceda a um ecossistema exclusivo de programas internacionais, bolsas estratégicas e eventos de networking de alta influência.
+          </p>
+          <div className="grid-3" style={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
+            {[
+              'Programas de Bolsas Internacionais',
+              'Eventos VIP de Networking',
+              'Acesso a Projetos em Parceria',
+              'Aconselhamento Global'
+            ].map((item, i) => (
+              <div key={i} className="feature-item">
+                <div className="feature-icon"><CheckCircle2 size={16} /></div>
+                <span style={{ fontWeight: 'bold', fontSize: '0.9rem' }}>{item}</span>
+              </div>
+            ))}
+          </div>
+          <button className="btn btn-accent" style={{ marginTop: '40px' }}>
+            Explorar Oportunidades <ArrowRight size={20} />
+          </button>
+        </div>
+
+        <div className="glass-card">
+          <div style={{ background: 'white', color: 'var(--primary)', width: '80px', height: '80px', borderRadius: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 30px', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}>
+            <Rocket size={32} />
+          </div>
+          <h3 style={{ fontSize: '2rem', color: 'white', marginBottom: '20px' }}>Próximo Masterclass</h3>
+          <div style={{ background: 'rgba(0,0,0,0.2)', padding: '30px', borderRadius: '30px', marginBottom: '30px', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div className="text-accent" style={{ fontWeight: '900', fontSize: '0.8rem', marginBottom: '10px', letterSpacing: '2px' }}>ABERTO PARA INSCRIÇÃO</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: '800' }}>Liderança Híbrida & Branding Pessoal</div>
+            <div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', opacity: 0.6, fontSize: '0.9rem' }}>
+              <span>25 DE MARÇO</span>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }}></span>
+              <span>ONLINE VIP</span>
+            </div>
+          </div>
+          <button className="btn" style={{ background: 'white', color: 'var(--primary)', width: '100%' }}>Garanta sua Vaga</button>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const Testimonials = () => (
+  <section id="referencias" className="section section-muted">
+    <div className="container">
+      <div className="section-title">
+        <span className="text-accent" style={{ fontWeight: '900', fontSize: '0.8rem', letterSpacing: '3px' }}>FEEDBACK DE ELITE</span>
+        <h2>Referências de <span className="text-gradient">Sucesso</span></h2>
+        <p>Histórias reais de profissionais que redesenharam suas carreiras.</p>
+      </div>
+
+      <div className="grid-3">
+        {[
+          { name: 'Dr. Ricardo Santos', role: 'CEO TechAfrica', text: 'A PERSONA+ transformou a forma como comunicamos o meu perfil. Hoje a autoridade é percebida antes mesmo da primeira reunião formal.' },
+          { name: 'Ana Oliveira', role: 'Executive Coach', text: 'O acompanhamento estratégico foi o divisor de águas crucial que eu precisava para o meu bem-sucedido reposicionamento digital.' },
+          { name: 'Pedro Mateus', role: 'Inovador Digital', text: 'As oportunidades de networking geradas pela plataforma são de altíssimo nível internacional. Recomendo com total confiança.' }
+        ].map((t, i) => (
+          <div key={i} className="testimonial-card">
+            <div>
+              <div className="stars">★★★★★</div>
+              <p style={{ fontSize: '1.25rem', fontWeight: '600', fontStyle: 'italic', color: 'var(--primary)', marginBottom: '30px' }}>"{t.text}"</p>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              <div style={{ width: '50px', height: '50px', background: 'rgba(0,59,126,0.05)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', color: 'var(--primary)' }}>
+                {t.name.charAt(0)}
+              </div>
+              <div>
+                <div style={{ fontWeight: '800', color: 'var(--primary-dark)' }}>{t.name}</div>
+                <div style={{ fontSize: '0.7rem', fontWeight: '900', color: 'var(--accent)', textTransform: 'uppercase' }}>{t.role}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Careers = () => (
+  <section id="emprego" className="section">
+    <div className="container">
+      <div className="career-banner">
+        <div style={{ flex: 1 }}>
+          <span className="text-accent" style={{ fontWeight: '900', fontSize: '0.8rem', letterSpacing: '2px', display: 'block', marginBottom: '15px' }}>FAÇA PARTE DO TIME</span>
+          <h2 style={{ fontSize: '3rem', color: 'var(--primary)', lineHeight: 1.1, marginBottom: '25px' }}>Construa o Futuro da <span className="text-gradient">Marca Pessoal</span> Connosco</h2>
+          <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '35px', maxWidth: '600px' }}>
+            Buscamos talentos obcecados por excelência e desenvolvimento humano. Se queres transformar vidas em escala global, o teu lugar é aqui.
+          </p>
+          <div className="stats-grid">
+            <div className="stat-item">
+              <h4>15+</h4>
+              <span>Cargos Abertos</span>
+            </div>
+            <div style={{ width: '1px', background: '#eee', height: '50px' }}></div>
+            <div className="stat-item">
+              <h4>4+</h4>
+              <span>Países Ativos</span>
+            </div>
+          </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', width: '300px' }}>
+          <button className="btn" style={{ background: 'var(--primary)', color: 'white' }}>Ver Vagas Atuais</button>
+          <button className="btn" style={{ background: 'rgba(232, 108, 23, 0.05)', color: 'var(--accent)', border: '1px solid rgba(232, 108, 23, 0.2)' }}>Candidatura Livre</button>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const Contact = () => (
   <section id="contacto" className="section" style={{ background: 'white' }}>
     <div className="container">
       <div className="hero-grid" style={{ alignItems: 'start' }}>
         <div>
-          <h2 style={{ fontSize: '2.5rem', color: 'var(--primary)', marginBottom: '20px' }}>Vamos Conversar?</h2>
-          <p style={{ marginBottom: '40px', fontSize: '1.1rem', color: 'var(--text-muted)' }}>Estamos prontos para ajudar no seu próximo grande passo estratégico.</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-              <Mail className="text-accent" />
-              <span>info@personaplus.com</span>
+          <span className="text-accent" style={{ fontWeight: '900', fontSize: '0.8rem', letterSpacing: '4px', display: 'block', marginBottom: '15px' }}>HUB DE CONTACTOS</span>
+          <h2 style={{ fontSize: '3.5rem', color: 'var(--primary)', marginBottom: '20px', lineHeight: 1.1 }}>Vamos Desenhar sua <span className="text-gradient">Estratégia</span></h2>
+          <p style={{ marginBottom: '40px', fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '500px' }}>Estamos prontos para impulsionar sua autoridade. Cada grande marca pessoal começa com uma única conversa estratégica.</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', background: 'var(--bg-light)', padding: '20px', borderRadius: '20px' }}>
+              <div style={{ background: 'white', padding: '15px', borderRadius: '15px', color: 'var(--primary)', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }}>
+                <Mail />
+              </div>
+              <div>
+                <div style={{ fontSize: '0.7rem', fontWeight: '900', color: 'var(--accent)' }}>EMAIL DIRETO</div>
+                <div style={{ fontWeight: 'bold' }}>info@personaplus.com</div>
+              </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-              <Phone className="text-accent" />
-              <span>+244 9XX XXX XXX</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', background: 'var(--bg-light)', padding: '20px', borderRadius: '20px' }}>
+              <div style={{ background: 'white', padding: '15px', borderRadius: '15px', color: 'var(--primary)', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }}>
+                <Phone />
+              </div>
+              <div>
+                <div style={{ fontSize: '0.7rem', fontWeight: '900', color: 'var(--accent)' }}>ATENDIMENTO</div>
+                <div style={{ fontWeight: 'bold' }}>+244 9XX XXX XXX</div>
+              </div>
             </div>
             <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
-              <Linkedin className="text-accent" />
-              <Instagram className="text-accent" />
+              {[<Linkedin />, <Instagram />].map((icon, i) => (
+                <a key={i} href="#" style={{ background: 'var(--bg-light)', padding: '15px', borderRadius: '15px', color: 'var(--primary)', transition: 'all 0.3s' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = 'white'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--bg-light)'; e.currentTarget.style.color = 'var(--primary)'; }}>
+                  {icon}
+                </a>
+              ))}
             </div>
           </div>
         </div>
-        <form style={{ background: 'var(--bg-light)', padding: '40px', borderRadius: '30px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <input type="text" placeholder="Seu Nome" style={{ padding: '15px', borderRadius: '12px', border: '1px solid #ddd' }} />
-          <input type="email" placeholder="Seu Email" style={{ padding: '15px', borderRadius: '12px', border: '1px solid #ddd' }} />
-          <select style={{ padding: '15px', borderRadius: '12px', border: '1px solid #ddd' }}>
+        <form style={{ background: 'white', padding: '40px', borderRadius: '40px', display: 'flex', flexDirection: 'column', gap: '20px', boxShadow: '0 30px 60px rgba(0,0,0,0.1)', border: '1px solid #eee' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+            <input type="text" placeholder="Seu Nome" style={{ padding: '18px', borderRadius: '15px', border: '1px solid #eee', background: 'var(--bg-light)', fontWeight: 'bold' }} />
+            <input type="email" placeholder="Seu Email" style={{ padding: '18px', borderRadius: '15px', border: '1px solid #eee', background: 'var(--bg-light)', fontWeight: 'bold' }} />
+          </div>
+          <select style={{ padding: '18px', borderRadius: '15px', border: '1px solid #eee', background: 'var(--bg-light)', fontWeight: 'bold', appearance: 'none' }}>
             <option>Selecione um Serviço...</option>
             <option>Mentoria</option>
             <option>Posicionamento</option>
             <option>Workshops</option>
           </select>
-          <textarea placeholder="Sua Mensagem" style={{ padding: '15px', borderRadius: '12px', border: '1px solid #ddd', height: '120px' }}></textarea>
-          <button className="btn btn-accent" style={{ width: '100%' }}>Enviar Mensagem</button>
+          <textarea placeholder="Sua Mensagem" style={{ padding: '18px', borderRadius: '15px', border: '1px solid #eee', background: 'var(--bg-light)', height: '150px', fontWeight: 'bold', resize: 'none' }}></textarea>
+          <button className="btn btn-accent" style={{ width: '100%', padding: '20px', fontSize: '1.1rem' }}>Solicitar Contacto <ArrowRight size={20} /></button>
         </form>
       </div>
     </div>
@@ -246,11 +380,37 @@ const Contact = () => (
 );
 
 const Footer = () => (
-  <footer>
+  <footer style={{ background: 'var(--primary)', color: 'white', padding: '100px 0 40px' }}>
     <div className="container">
-      <div className="footer-content">
-        <Logo light />
-        <div style={{ fontSize: '0.9rem', opacity: 0.8 }}>© 2024 PERSONA+ . Todos os direitos reservados.</div>
+      <div className="footer-content" style={{ paddingBottom: '60px', borderBottom: '1px solid rgba(255,255,255,0.1)', marginBottom: '40px' }}>
+        <div style={{ maxWidth: '400px' }}>
+          <Logo light />
+          <p style={{ marginTop: '30px', opacity: 0.7, fontSize: '1.1rem' }}>Elevando o padrão de posicionamento estratégico no mercado lusófono. Autoridade que gera legado.</p>
+        </div>
+        <div className="nav-links" style={{ gap: '60px' }}>
+          <div>
+            <h4 style={{ color: 'var(--accent)', fontSize: '0.8rem', fontWeight: '900', marginBottom: '25px', letterSpacing: '2px' }}>NAVEGAÇÃO</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+              <a href="#sobre" style={{ color: 'white', opacity: 0.8, textDecoration: 'none' }}>Sobre Nós</a>
+              <a href="#servicos" style={{ color: 'white', opacity: 0.8, textDecoration: 'none' }}>Serviços</a>
+              <a href="#referencias" style={{ color: 'white', opacity: 0.8, textDecoration: 'none' }}>Cases</a>
+            </div>
+          </div>
+          <div>
+            <h4 style={{ color: 'var(--accent)', fontSize: '0.8rem', fontWeight: '900', marginBottom: '25px', letterSpacing: '2px' }}>CARREIRAS</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+              <a href="#emprego" style={{ color: 'white', opacity: 0.8, textDecoration: 'none' }}>Vagas Abertas</a>
+              <a href="#emprego" style={{ color: 'white', opacity: 0.8, textDecoration: 'none' }}>Equipa Global</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', opacity: 0.4, fontSize: '0.8rem', fontWeight: '700' }}>
+        <div>© 2024 PERSONA+ . Todos os direitos reservados.</div>
+        <div style={{ display: 'flex', gap: '30px' }}>
+          <a href="#" style={{ color: 'white', textDecoration: 'none' }}>Privacidade</a>
+          <a href="#" style={{ color: 'white', textDecoration: 'none' }}>Termos</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -263,6 +423,9 @@ export default function App() {
       <Hero />
       <About />
       <Services />
+      <Opportunities />
+      <Testimonials />
+      <Careers />
       <Contact />
       <Footer />
     </div>
