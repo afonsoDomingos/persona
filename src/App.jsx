@@ -43,8 +43,10 @@ const Navbar = () => {
   const menuItems = [
     { name: 'Sobre Nós', href: '#sobre' },
     { name: 'Serviços', href: '#servicos' },
+    { name: 'Parceiros', href: '#parceiros' },
     { name: 'Oportunidades', href: '#oportunidades' },
     { name: 'Referências', href: '#referencias' },
+    { name: 'Equipa', href: '#equipa' },
     { name: 'Emprego', href: '#emprego' },
     { name: 'Estágio', href: '#estagio' },
     { name: 'Contacto', href: '#contacto' },
@@ -214,6 +216,33 @@ const About = () => (
   </section>
 );
 
+const Partners = () => (
+  <section id="parceiros" className="section section-muted">
+    <div className="container">
+      <div className="section-title">
+        <span className="text-accent" style={{ fontWeight: '900', fontSize: '0.8rem', letterSpacing: '3px' }}>ECOSSISTEMA</span>
+        <h2>Nossos Parceiros</h2>
+        <p>Instituições e marcas que confiam na nossa estratégia global.</p>
+      </div>
+      <div className="grid-3" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
+        {[
+          { name: 'Global Tech', desc: 'Parceiro em Inovação Digital' },
+          { name: 'Elite Branding', desc: 'Estrategistas de Imagem' },
+          { name: 'Leadership Hub', desc: 'Desenvolvimento Executivo' },
+          { name: 'Market Leaders', desc: 'Análise de Posicionamento' }
+        ].map((p, i) => (
+          <div key={i} className="partner-card">
+            <div className="partner-logo-placeholder">{p.name}</div>
+            <h4 style={{ color: 'var(--primary)', marginBottom: '10px' }}>{p.name}</h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+
 const Services = () => (
   <section id="servicos" className="section">
     <div className="container">
@@ -322,6 +351,34 @@ const Testimonials = () => (
                 <div style={{ fontWeight: '800', color: 'var(--primary-dark)' }}>{t.name}</div>
                 <div style={{ fontSize: '0.7rem', fontWeight: '900', color: 'var(--accent)', textTransform: 'uppercase' }}>{t.role}</div>
               </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Team = () => (
+  <section id="equipa" className="section" style={{ background: 'white' }}>
+    <div className="container">
+      <div className="section-title">
+        <span className="text-accent" style={{ fontWeight: '900', fontSize: '0.8rem', letterSpacing: '3px' }}>EXPERTISE</span>
+        <h2>Fundadores & Equipa Técnica</h2>
+        <p>Mentes brilhantes dedicadas à sua autoridade.</p>
+      </div>
+      <div className="grid-3">
+        {[
+          { name: 'Francisco Xavier', role: 'Fundador & CEO', img: '/persona05.jpeg' },
+          { name: 'Helena Santos', role: 'Diretora de Estratégia', img: '/persona06.jpeg' },
+          { name: 'Marco Silva', role: 'CTO / Lead Tecnológico', img: '/persona07.jpeg' },
+          { name: 'Sofia Costa', role: 'Estrategista de Marca', img: '/persona08.jpeg' }
+        ].map((m, i) => (
+          <div key={i} className="member-card">
+            <img src={m.img} alt={m.name} className="member-image" />
+            <div className="member-info">
+              <h4>{m.name}</h4>
+              <span>{m.role}</span>
             </div>
           </div>
         ))}
@@ -460,9 +517,11 @@ export default function App() {
       <Navbar />
       <Hero />
       <About />
+      <Partners />
       <Services />
       <Opportunities />
       <Testimonials />
+      <Team />
       <Careers />
       <Contact />
       <Footer />
